@@ -1,29 +1,29 @@
 #include "sort.h"
 /**
- * selection_sort - sorts a list using selection sort
+ * selection_sort - sorts a list
  *
  * @array: The list to be sorted
  * @size: The size of the list
  */
 void selection_sort(int *array, size_t size)
 {
-	size_t i = 0, j = 0, m = 0, t = 0;
+	size_t a = 0, b = 0, c = 0, d = 0;
 
 	if (array == NULL || size == 0)
 		return;
-	for ( ; i < size - 1; i++)
-	{
-		m = i;
-		for (j = i + 1; j < size; j++)
+	for ( ; a < size - 1; a++)
+	
+		c = a;
+		for (b = a + 1; b < size; b++)
 		{
-			if (array[j] < array[m])
-				m = j;
+			if (array[b] < array[c])
+				c = b;
 		}
-		if (array[m] == array[i])
+		if (array[c] == array[a])
 			continue;
-		t = array[m];
-		array[m] = array[i];
-		array[i] = t;
+		t = array[c];
+		array[c] = array[a];
+		array[a] = d;
 		print_array(array, size);
 	}
 }
