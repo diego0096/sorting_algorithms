@@ -1,33 +1,33 @@
 #include "sort.h"
 /**
- * insertion_sort_list - C function to insert node via sort
- * @list: Double pointer to list of struct listint_t type
+ * insertion_sort_list - C function to insert node
+ * @list: Double pointer to list of struct listint_t
  * Return: Return sorted list
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *cNode = NULL, *pNode = NULL;
+	listint_t *Node1 = NULL, *Node2 = NULL;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
-	cNode = *list;
-	while (cNode != NULL)
+	Node1 = *list;
+	while (Node1 != NULL)
 	{
-		pNode = cNode;
-		while (pNode->prev != NULL && pNode->n < pNode->prev->n)
+		pNode = Node1;
+		while (Node2->prev != NULL && Node2->n < Node2->prev->n)
 		{
-			pNode->prev->next = pNode->next;
-			if (pNode->next != NULL)
-				pNode->next->prev = pNode->prev;
-			pNode->next = pNode->prev;
-			pNode->prev = pNode->prev->prev;
-			pNode->next->prev = pNode;
-			if (pNode->prev == NULL)
-				*list = pNode;
+			Node2->prev->next = Node2->next;
+			if (Node2->next != NULL)
+				Node2->next->prev = Node2->prev;
+			Node2->next = Node2->prev;
+			Node2->prev = Node2->prev->prev;
+			Node2->next->prev = Node2;
+			if (Node2->prev == NULL)
+				*list = Node2;
 			else
-				pNode->prev->next = pNode;
+				Node2->prev->next = Node2;
 			print_list(*list);
 		}
-		cNode = cNode->next;
+		Node1 = Node1->next;
 	}
 }
